@@ -25,10 +25,14 @@ class Database {
   }
 
   mongo() {
-    this.mongoConnection = mongoose.connect(mongoConfig.MONGO_URI, {
-      useNewUrlParser: true,
-      useFindAndModify: true
-    });
+    this.mongoConnection = mongoose
+      .connect(mongoConfig.MONGO_URI, {
+        useCreateIndex: true,
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+      })
+      .then(() => console.log('connecting to database successful'))
+      .catch(err => console.error('could not connect to mongo DB', err));
   }
 }
 

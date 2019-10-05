@@ -22,7 +22,7 @@ class NotificationController {
 
     return res.json({
       success: true,
-      data: notifications,
+      result: notifications,
       message: 'Notification'
     });
   }

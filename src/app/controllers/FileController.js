@@ -11,7 +11,7 @@ class FileController {
 
     return res.json({
       success: true,
-      data: file,
+      result: file,
       message: 'File created successfully'
     });
   }

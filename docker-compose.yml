@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  mongo_dev:
+    image: mongo
+    ports:
+      - '27017:27017'
+    networks:
+      - backend_net
+
+  redis:
+    image: redis
+    ports:
+      - '6379:6379'
+    networks:
+      - backend_net
+
+  postgres:
+    image: postgres
+    ports:
+      - '5432:5432'
+    networks:
+      - backend_net
+
+networks:
+  backend_net:
+    driver: bridge

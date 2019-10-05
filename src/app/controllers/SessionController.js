@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
 const Yup = require('yup');
 const User = require('../models/User');
+const File = require('../models/File');
 const authConfig = require('../../config/auth');
 
 class SessionController {
@@ -23,7 +24,14 @@ class SessionController {
     const { email, password } = req.body;
 
     const user = await User.findOne({
-      where: { email }
+      where: { email },
+      include: [
+        {
+          model: File,
+          as: 'avatar',
+          attributes: ['id', 'path', 'url']
+        }
+      ]
     });
 
     if (!user) {
@@ -40,7 +48,7 @@ class SessionController {
       });
     }
 
-    const { id, name, provider } = user;
+    const { id, name, provider, avatar } = user;
 
     return res.json({
       success: true,
@@ -48,7 +56,8 @@ class SessionController {
         id,
         name,
         email,
-        provider
+        provider,
+        avatar
       },
       token: jwt.sign({ id, name, email }, authConfig.secret, {
         expiresIn: authConfig.expiresIn
