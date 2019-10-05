@@ -2,18 +2,18 @@ APP_URL=http://localhost:3333
 NODE_ENV=development
 
 #Auth
-SECRET=anevechegacedoesseano
+SECRET=
 EXPIRESIN=7d
 
 #Postgres
-DB_HOST=localhost
-DB_USER=postgres
-DB_PASS=postgres
-DB_DATABASE=gobarber
-DB_PORT=5432
+DB_HOST=
+DB_USER=
+DB_PASS=
+DB_DATABASE=
+DB_PORT=
 
 #Mongo
-MONGO_URI=mongodb://localhost:27017/gobarber
+MONGO_URI=mongodb://localhost:27017/
 
 
 # Redis
@@ -22,12 +22,12 @@ REDIS_PORT:6379
 
 
 #Mail
-MAIL_HOST=smtp.mailtrap.io
-MAIL_PORT=2525
-MAIL_USER=a66300b01658b9
-MAIL_PASS=335c403316381d
+MAIL_HOST=
+MAIL_PORT=
+MAIL_USER=
+MAIL_PASS=
 
 
 
 #SENTRY
-DSN=https://78fa2c2165794c50bb7a78daa00871c9@sentry.io/1504638
+DSN=
